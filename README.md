@@ -1,7 +1,7 @@
 # AppTrackingTransparency
-iOS 14 Checklist-App Tracking Transparency（ATT）适用于请求用户授权，访问与应用相关的数据以跟踪用户或设备
+iOS 14 Checklist-App Tracking Transparency（ATT）Suitable for requesting user authorization and accessing application-related data to track users or devices
 
-# 用户授权效果图
+# User authorization renderings
 
 <img src="./READMEIMAGE/Simulator Screen Shot - iPhone 8 - 2020-12-23 at 13.28.49.png" style="zoom:25%;" />
 
@@ -10,17 +10,18 @@ iOS 14 Checklist-App Tracking Transparency（ATT）适用于请求用户授权�
 
 
 # 注意事项：
-*  App Tracking Transparency（ATT）适用于请求用户授权，访问与应用相关的数据以跟踪用户或设备。 访问 https://developer.apple.com/documentation/apptrackingtransparency了解更多信息。
-*  SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在保持用户隐私的同时衡量广告活动。 使用 Apple 的 SKAdNetwork 后，即使 IDFA 不可用，广告网络也可以正确获得应用安装的归因结果。 访问 https://developer.apple.com/documentation/storekit/skadnetwork 了解更多信息。
-苹果未要求开发者配置之前，开发者请勿配置ATT，当前阶段配置后会影响idfa 的获取，从而影响广告收益。
+*  App Tracking Transparency（ATT）Suitable for requesting user authorization and accessing application-related data to track users or devices。 access https://developer.apple.com/documentation/apptrackingtransparency to know more information.
+
+* SKAdNetwork (SKAN) is Apple’s attribution solution that helps advertisers measure ad campaigns while maintaining user privacy. After using Apple’s SKAdNetwork, even if IDFA is unavailable, the ad network can correctly obtain attribution results for app installations. Visit https://developer.apple.com/documentation/storekit/skadnetwork for more information.
+Before Apple does not require developers to configure ATT, developers should not configure ATT. After the current configuration, it will affect the acquisition of idfa and thus affect advertising revenue.
 
 
 # Checklist
-* 应用编译环境升级至 Xcode 12.0 及以上版本
+* Upgrade the application compilation environment to Xcode 12.0 and above
 
-* 如果集成了第三方广告SDK，需求其提供了 iOS 14 与 SKAdNetwork 支持
+* If a third-party advertising SDK is integrated, it needs to provide iOS 14 and SKAdNetwork support
 
-* 将第三方广告SDK的 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+* Add the SKAdNetwork ID of the third-party advertising SDK to info.plist to ensure the correct operation of SKAdNetwork
 
 ```xml
 	<key>SKAdNetworkItems</key>
@@ -36,16 +37,16 @@ iOS 14 Checklist-App Tracking Transparency（ATT）适用于请求用户授权�
   </array>
 ```
 
-* 支持苹果 ATT：从 iOS 14 开始，若开发者设置 App Tracking Transparency 向用户申请跟踪授权，在用户授权之前IDFA 将不可用。 如果用户拒绝此请求，应用获取到的 IDFA 将自动清零，可能会导致您的广告收入的降低
-  要获取 App Tracking Transparency 权限，请更新您的 Info.plist，添加 NSUserTrackingUsageDescription 字段和自定义文案描述。代码示例：
+* Support Apple ATT: Starting from iOS 14, if the developer sets App Tracking Transparency to apply for tracking authorization from the user, IDFA will not be available until the user authorizes it. If the user rejects this request, the IDFA obtained by the app will be automatically cleared, which may result in a decrease in your advertising revenue
+  To obtain App Tracking Transparency permissions, please update your Info.plist to add the NSUserTrackingUsageDescription field and custom text description. Code example:
 ```xml
 <key>NSUserTrackingUsageDescription</key>
-<string>该标识符将用于向您投放个性化广告</string>
+<string>This identifier will be used to deliver personalized ads to you</string>
 ```
 
 
 
-# Swift 代码示例
+# Swift code example
 ```swift
 import AppTrackingTransparency
 import AdSupport
@@ -58,7 +59,7 @@ func requestIDFA() {
 ```
 
 
-# Objective-C 代码示例
+# Objective-C code example
 
 ```objective-c
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
