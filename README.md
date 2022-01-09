@@ -9,7 +9,7 @@ iOS 14 Checklist-App Tracking Transparency（ATT）Suitable for requesting user 
 
 
 
-# 注意事项：
+# Precautions:
 *  App Tracking Transparency（ATT）Suitable for requesting user authorization and accessing application-related data to track users or devices。 access https://developer.apple.com/documentation/apptrackingtransparency to know more information.
 
 * SKAdNetwork (SKAN) is Apple’s attribution solution that helps advertisers measure ad campaigns while maintaining user privacy. After using Apple’s SKAdNetwork, even if IDFA is unavailable, the ad network can correctly obtain attribution results for app installations. Visit https://developer.apple.com/documentation/storekit/skadnetwork for more information.
